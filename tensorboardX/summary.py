@@ -289,9 +289,9 @@ def make_video(tensor, fps):
         filename = f.name + '.gif'
 
     try:
-        clip.write_gif(filename, verbose=False, progress_bar=False)
+        clip.write_gif(filename, verbose=False, progress_bar=False, program='ImageMagick', opt='optimizeplus')
     except TypeError:
-        clip.write_gif(filename, verbose=False)
+        clip.write_gif(filename, verbose=False, program='ImageMagick', opt='optimizeplus')
 
     with open(filename, 'rb') as f:
         tensor_string = f.read()
